@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+{% block extra_metatags %}
+{% endblock %}
+<title>{% block title %}Harrison Chapman{% endblock %}</title>
+<link rel="icon" type="image/png" href="/static/images/favicon.png">
+<link rel="stylesheet" href="/static/css/reset.css" />
+<link rel="stylesheet" href="/static/css/text.css" />
+<link rel="stylesheet" href="/static/css/960.css" />
+<link rel="stylesheet" href="/static/css/page.css" />
+<link rel="stylesheet" href="/static/css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/lightbox.css" media="screen" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js'></script>
+<script type='text/javascript' src='/static/js/jquery-ui.js'></script>
+<script type='text/javascript' src='/static/js/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='/static/js/jquery.lightbox.js'></script>
+<script type='text/javascript' src='/static/js/jquery.tinymce.js'></script>
+{% block extra_scripts %}{% endblock %}
+</head>
+<body>
+<div id='outer-wrap'>
+<div id='wrap' class='container_12'>
+    <div id='header'>
+        <div class='grid_6' id='logo'><!-- Start header -->
+            <a title='May 9, 7:00 pm' href='/'><img src='/static/images/transparentlogo.png'></a>
+        </div><!-- End header -->
+    </div>
+    <div class='clear'></div>
+    
+    <!-- This is for the "floating" navbar -->
+    <div class='navbar_clear grid_12'></div>
+    <div class='clear'></div>
+    
+    {% block main_content %}
+    <div class='grid_12 flash-msg' id='msgbox'>
+      {% if flash.msg %}
+        {{ flash.msg }}
+      {% endif %}
+    </div>
+    {% block top_row %}{% endblock %}
+    <div class='grid_7 left'><!-- Left-hand column on front page -->
+        {% block left_column %}
+
+        {% endblock %}
+    </div><!-- End left-hand column -->
+    
+    <!-- Right-hand column on front page -->
+    <div class='grid_5 right'>
+        {% block right_column %}
+
+        {% endblock %}
+    </div><!-- End right-hand column -->
+    {% endblock %}
+    <div class='clear'></div>
+    
+    <div id='footer'>
+        {% block footer %}<!-- footer, obviously -->
+        &copy; 2010-2011, WBOR Brunswick, 91.1 FM
+        {% endblock %}
+    </div><!-- end footer -->
+    
+    <div id='navigation'>
+        <ul>
+            <li {% if news_selected %}class='selected'{% endif %}><a href='/'>News</a></li>
+            <li {% if events_selected %}class='selected'{% endif %}><a href='/events'>Events</a></li>
+            <li {% if schedule_selected %}class='selected'{% endif %}><a href='/schedule'>Schedule</a></li>
+            <li {% if playlists_selected %}class='selected'{% endif %}><a href='/playlists'>Playlists</a></li>
+            <li {% if charts_selected %}class='selected'{% endif %}><a href='/charts'>Charts</a></li>
+	    <li {% if fun_selected %}class='selected'{% endif %}><a href='/fun'>Fun</a></li>
+            <li {% if history_selected %}class='selected'{% endif %}><a href='/history'>History</a></li>
+            <li {% if contact_selected %}class='selected'{% endif %}><a href='/contact'>Contact</a></li>
+            <li><a href='/dj/login'>DJ Login</a></li>
+        </ul>
+        <div id='nowplaying'>
+            <strong>&#9835; NOW PLAYING &#9835;</strong>
+            <br>
+            <span id='currentsong'>gathering info...</span>
+            <br>
+            on <a href='show/hitgitsplit' id='currentshow'>wait for it...</a>
+            <div id='showdeschidden'>
+                <hr>
+                <p id='currentshowdesc'>
+                  <!-- The Hit Git &amp; Split is celebrating Tom Wait's 60th birthday for this college season. The theme is "Just Another Dime Store Novel". From "Pasties and a G-string", an adventure in tassel twirling, along with "Hang on St. Christopher", we'll take you "Straight to the Top" of "Frank's Wild Years". "Jesus Gonna Be Here", along with "Chocolate Jesus", because "God's Away on Business". The AWB will prevail as your "Late Night Evening Prostitute". A good gardener knows when to put his hose down and roll it up. "Well, that ain't half of it, man, you know - boy have I got a show for you!" --> loading show description
+                  </p>
+            </div>
+        </div>
+    </div>
+</div><!-- End wrap -->
+</div><!-- End outer wrap -->
+</body>
+</html>
