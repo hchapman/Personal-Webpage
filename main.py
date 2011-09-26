@@ -16,15 +16,10 @@
 #
 
 import os
-import models
 import urllib
 import hashlib
 import datetime
-import sessions
 import time
-import flash
-import amazon
-import logging
 from google.appengine.api import urlfetch
 from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
@@ -32,38 +27,14 @@ from google.appengine.ext.webapp import util
 from django.utils import simplejson
 from google.appengine.api import memcache
 from google.appengine.runtime import DeadlineExceededError
-from passwd_crypto import hash_password
-from dj import check_login
 
 def getPath(filename):
   return os.path.join(os.path.dirname(__file__), filename)
 
 class MainPage(webapp.RequestHandler):
   def get(self):
-    self.sess = sessions.Session()
-    self.flash = flash.Flash()
-    album_list = []
-    # album_list = models.getNewAlbums(50)
-    start = datetime.datetime.now() - datetime.timedelta(weeks=1)
-    end = datetime.datetime.now()
-    song_num = 10
-    album_num = 10
-    top_songs, top_albums = models.getTopSongsAndAlbums(
-      start, end, song_num, album_num)
-    posts = models.getLastPosts(3)
-    events = models.getEventsAfter(datetime.datetime.now() - 
-                                   datetime.timedelta(days=1), 3)
-    template_values = {
-      'flash': self.flash,
-      'session': self.sess,
-      'album_list': album_list,
-      'top_songs': top_songs,
-      'top_albums': top_albums,
-      'posts': posts,
-      'events': events,
-      }
     self.response.out.write(template.render(getPath("index.html"), 
-                                            template_values))
+                                            dict()))
 
 def real_main():
   application = webapp.WSGIApplication([
