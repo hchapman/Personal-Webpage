@@ -36,9 +36,32 @@ class MainPage(webapp.RequestHandler):
     self.response.out.write(template.render(getPath("index.html"), 
                                             dict()))
 
+class ClassPage(webapp.RequestHandler):
+  def get(self, classname):
+    if classname > "":
+      self.response.out.write(template.render(getPath("class_page.html"),
+                                              dict()))
+    else:
+      self.response.out.write(template.render(getPath("class_list.html"), 
+                                              dict()))
+
+class ResearchPage(webapp.RequestHandler):
+  def get(self):
+    self.response.out.write(template.render(getPath("index.html"), 
+                                            dict()))
+
+class OtherPage(webapp.RequestHandler):
+  def get(self):
+    self.response.out.write(template.render(getPath("index.html"), 
+                                            dict()))
+
 def real_main():
   application = webapp.WSGIApplication([
       ('/', MainPage),
+      ('/main/?', MainPage),
+      ('/class/?([^/]*)/?', ClassPage),
+      ('/research/?', ResearchPage),
+      ('/other/?', OtherPage),
       ],
                                        debug=True)
   util.run_wsgi_app(application)

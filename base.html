@@ -19,17 +19,20 @@
 </head>
 <body>
   <div id='outer-wrap'>
-    <div id='wrap' class='container_12'>
-      <div id='header'>
-        <div class='grid_12' id='logo'><!-- Start header -->
-          <h1 class="header_name">Harrison Chapman</h1>
-	  <h2 class="header_secondary">
-	    Mathematics Ph.D. Student at the University of Georgia
-	  </h2>
-        </div><!-- End header -->
-      </div>
-      <div class='clear'></div>
-      
+    <div id='wrap' class='container_12 page'>
+      <div class='grid_12 header'<!-- Start header -->
+           <h1 class="header_name">Harrison Chapman</h1>
+	   <h2 class="header_secondary">
+	     Mathematics Graduate Student
+	   </h2>
+    </div><!-- End header -->
+    <div class='clear'></div>
+    <div class='grid_12 nav'>
+      <div class='grid_3 alpha nav_option'><a href="/main">About Me</a></div>
+      <div class='grid_3 nav_option'><a href="/class">Teaching</a></div>
+      <div class='grid_3 nav_option'>Research</div>
+      <div class='grid_3 omega nav_option'>Other Projects</div>
+    </div>
     {% block main_content %}
     
     {% block top_row %}{% endblock %}
@@ -49,12 +52,14 @@
     {% endblock %}
     <div class='clear'></div>
     
-    <div id='footer'>
+    <div class='grid_12 footer'>
         {% block footer %}<!-- footer, obviously -->
+	<p class="disclaimer">
+	  The content and opinions expressed on this webpage, or any subsequent pages do not necessarily reflect the views of nor are they endorsed by the University of Georgia or the University System of Georgia.
+	</p>
         &copy; 2011, Harrison Chapman
         {% endblock %}
     </div><!-- end footer -->
-    
 </div><!-- End wrap -->
 </div><!-- End outer wrap -->
 </body>
