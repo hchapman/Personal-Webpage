@@ -1,19 +1,27 @@
 {% extends "base.html" %}
 
+{% block nav_tab_about %}<li class="active">
+<a href="/main">About</a>
+</li>{% endblock %}
+
 {% block left_column %}
-<div class='photo'>
+<div class='thumbnail'>
 <img src="/static/img/withknuth.jpg" class="self_picture">
-With Dr. Donald Knuth after a talk at Bowdoin College, February 2011
+<div class="caption">
+<h6>With Dr. Donald Knuth</h6>
+Bowdoin College, February 2011
+</div>
 </div>
 {% endblock %}
 
 {% block right_column %}
-<h1 class="content">Contact</h1>
-<p>
+<h2 class="content">Contact</h2>
+<address>
+<strong>Harrison Chapman</strong><br>
 Department of Mathematics<br>
 University of Georgia<br>
 Athens, GA 30602
-</p>
+</address>
 
 <p>
 <strong>Office:</strong> 643 Boyd Graduate Studies Building<br>
@@ -21,9 +29,10 @@ Athens, GA 30602
 <strong>Email:</strong> hchapman
 </p>
 
-<h1 class="content">About Me</h1>
+<h2 class="content">About Me</h2>
 <p>I am currently a mathematics graduate student at the University of Georgia working towards a Ph.D. degree. I graduated from Bowdoin College in May of 2011 with a B.A. in Mathematics and Computer Science.</p>
+<p></p>
 
-<h1 class="content">Teaching</h1>
-<p>This semester (Fall 2011) I am leading two breakout recitation sessions for Dr. Johnathan Hanke's Math 2200 class. All of the homework for the class is submitted on <a href="http://www.webassign.com">WebAssign</a>, and can be found there. Copies of quizzes given during recitation period can be found on the <a href="/class/fall2011_2200">session webpage</a>.</p>
+<h2 class="content">Teaching</h2>
+<p>This semester (Spring 2012) I am leading a breakout recitation session for Dr. Roy Segars's Math 2200 class. All of the homework for the class is submitted on <a href="http://www.webassign.com">WebAssign</a>, and can be found there. Other information (including any handouts distributed during recitation period) can be found on the <a href="/class/spring/2012/2200">session webpage</a>.</p>
 {% endblock %}

@@ -28,22 +28,31 @@ from django.utils import simplejson
 from google.appengine.api import memcache
 from google.appengine.runtime import DeadlineExceededError
 
+SEMESTERS = {("fall", 0),
+             ("spring", 1),
+             ("summer", 2)}
+
 def getPath(filename):
   return os.path.join(os.path.dirname(__file__), filename)
+
+def parseClass(classname):
+  pass
 
 class MainPage(webapp.RequestHandler):
   def get(self):
     self.response.out.write(template.render(getPath("index.html"), 
                                             dict()))
 
+class ClassList(webapp.RequestHandler):
+  def get(self):
+    self.response.out.write(template.render(getPath("class_list.html"), 
+                                            dict()))
+
 class ClassPage(webapp.RequestHandler):
-  def get(self, classname):
-    if classname > "":
-      self.response.out.write(template.render(getPath("class_page.html"),
-                                              dict()))
-    else:
-      self.response.out.write(template.render(getPath("class_list.html"), 
-                                              dict()))
+  def get(self, semester, year, section):
+    self.response.out.write(template.render(getPath("class_page.html"),
+                                            dict()))
+
 
 class ResearchPage(webapp.RequestHandler):
   def get(self):
@@ -59,7 +68,8 @@ def real_main():
   application = webapp.WSGIApplication([
       ('/', MainPage),
       ('/main/?', MainPage),
-      ('/class/?([^/]*)/?', ClassPage),
+      ('/class/?', ClassList),
+      ('/class/([^/]*)/([^/]*)/([^/]*)/?', ClassPage),
       ('/research/?', ResearchPage),
       ('/other/?', OtherPage),
       ],

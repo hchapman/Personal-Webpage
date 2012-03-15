@@ -1,15 +1,29 @@
 {% extends "base.html" %}
 
-{% block main_content %}
-<div class='grid_12 main_content'>
-  <h1 class="content">Current (Fall 2011)</h1>
-  <ul>
-    <li>Math 2200 Recitation</li>
-  </ul>
+{% block nav_tab_class %}<li class="active">
+<a href="/class">Teaching</a>
+</li>{% endblock %}
 
-  <h1 class="content">Previously</h1>
-  <ul>
-    <li>(This is my first semester teaching at UGA!)</li>
-  </ul>
+{% block main_content %}
+<div class="row">
+
+<div class="span4">
+<div class="well">
+<ul class='nav nav-list'>
+  <li class="nav-header">Current (Spring 2012)</li>
+  <li><a href="/class/spring/2012/2200/">Math 2200 Recitation (Segars)</a></li>  
+
+  <li class="nav-header">Fall 2011</li>
+  <li>Math 2200 Recitation (Hanke)</li>
+</ul>
 </div>
-{% endblock %}
+</div>
+
+<div class="span9\8">
+  {% block class_content %} 
+  Hi
+  {% endblock %}
+</div>
+
+</div>
+{% endblock main_content %}

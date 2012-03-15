@@ -6,10 +6,20 @@
 {% endblock %}
 <title>{% block title %}Harrison Chapman{% endblock %}</title>
 <link rel="icon" type="image/png" href="/static/images/favicon.png">
-<link rel="stylesheet" href="/static/css/reset.css" />
-<link rel="stylesheet" href="/static/css/text.css" />
-<link rel="stylesheet" href="/static/css/960.css" />
-<link rel="stylesheet" href="/static/css/page.css" />
+<link href='http://fonts.googleapis.com/css?family=Brawler' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<style type="text/css">
+  body {
+    padding-top: 25px;
+    padding-bottom: 40px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+</style>
+<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/static/css/main.css" />
 <script src="https://www.google.com/jsapi?key=ABQIAAAAbEpSkJUwwrMm9Q8-Kw6O7BSYsJ9DuGhn0e21mbaKlwAfM4CNERQztA85cMk6lZh2Wk7vy5rCZFavDQ" type="text/javascript"></script>
 <script type='text/javascript'>
    google.load("jquery", "1.6.4");
@@ -18,49 +28,58 @@
 {% block extra_scripts %}{% endblock %}
 </head>
 <body>
-  <div id='outer-wrap'>
-    <div id='wrap' class='container_12 page'>
-      <div class='grid_12 header'<!-- Start header -->
-           <h1 class="header_name">Harrison Chapman</h1>
-	   <h2 class="header_secondary">
-	     Mathematics Graduate Student
-	   </h2>
-    </div><!-- End header -->
-    <div class='clear'></div>
-    <div class='grid_12 nav'>
-      <div class='grid_3 alpha nav_option'><a href="/main">About Me</a></div>
-      <div class='grid_3 nav_option'><a href="/class">Teaching</a></div>
-      <div class='grid_3 nav_option'>Research</div>
-      <div class='grid_3 omega nav_option'>Other Projects</div>
-    </div>
+
+
+  <div class='container'>
+  <!-- Start header -->
+      <h1 class="nameheader">Harrison Chapman</h1>
+      <h3>
+	Graduate Student, Department of Mathematics
+      </h3>
+      <h4>University of Georgia</h4><br />
+  <!-- End header -->
+
+      <div class="container">
+
+	<ul class="nav nav-tabs">
+	  {% block nav_tab_about %}<li><a href="/main">About</a></li>{% endblock %}
+	  {% block nav_tab_class %}<li><a href="/class">Teaching</a></li>{% endblock %}
+	  {% block nav_tab_research %}<li><a href="#">Research</a></li>{% endblock %}
+	  {% block nav_tab_projects %}<li><a href="#">Projects</a></li>{% endblock %}
+	</ul>
+
+      </div>
+
     {% block main_content %}
     
     {% block top_row %}{% endblock %}
 
-    <div class='grid_7 left'><!-- Left-hand column on front page -->
-        {% block left_column %}
+    <div class="row">
+    <div class='span7'><!-- Left-hand column on front page -->
+      {% block left_column %}
       Stuff.
-        {% endblock %}
+      {% endblock %}
     </div><!-- End left-hand column -->
     
     <!-- Right-hand column on front page -->
-    <div class='grid_5 right'>
-        {% block right_column %}
+    <div class='span5'>
+      {% block right_column %}
 
-        {% endblock %}
+      {% endblock %}
     </div><!-- End right-hand column -->
+    </div>
     {% endblock %}
-    <div class='clear'></div>
-    
-    <div class='grid_12 footer'>
-        {% block footer %}<!-- footer, obviously -->
-	<p class="disclaimer">
-	  The content and opinions expressed on this webpage, or any subsequent pages do not necessarily reflect the views of nor are they endorsed by the University of Georgia or the University System of Georgia.
-	</p>
-        &copy; 2011, Harrison Chapman
-        {% endblock %}
-    </div><!-- end footer -->
-</div><!-- End wrap -->
-</div><!-- End outer wrap -->
+
+    <hr>
+    <footer>
+      {% block footer %}<!-- footer, obviously -->
+      <p class="disclaimer">
+	The content and opinions expressed on this webpage, or any subsequent pages do not necessarily reflect the views of nor are they endorsed by the University of Georgia or the University System of Georgia.
+	&copy; 2011, Harrison Chapman
+      </p>
+      {% endblock %}
+    </footer><!-- end footer -->
+  </div><!-- End container -->
 </body>
+<script src="/static/js/bootstrap-collapse.js"></script>
 </html>
