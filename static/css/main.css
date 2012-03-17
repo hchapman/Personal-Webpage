@@ -1,3 +1,13 @@
 .nameheader {
     font-family: "Brawler", Georgia, Times, serif;
 }
+
+.primary-content h2 {
+    font-family: "Brawler", Times, serif;
+}
+
+.disclaimer,.copyright {
+    color: #aaa;
+    font-size: 80%;
+    margin: 0px;
+}

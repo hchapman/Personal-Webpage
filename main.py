@@ -28,9 +28,9 @@ from django.utils import simplejson
 from google.appengine.api import memcache
 from google.appengine.runtime import DeadlineExceededError
 
-SEMESTERS = {("fall", 0),
-             ("spring", 1),
-             ("summer", 2)}
+SEMESTERS = dict((("fall", 0),
+                 ("spring", 1),
+                 ("summer", 2)))
 
 def getPath(filename):
   return os.path.join(os.path.dirname(__file__), filename)
