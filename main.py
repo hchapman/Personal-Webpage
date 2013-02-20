@@ -40,12 +40,12 @@ def parseClass(classname):
 
 class MainPage(webapp.RequestHandler):
   def get(self):
-    self.response.out.write(template.render(getPath("index.html"), 
+    self.response.out.write(template.render(getPath("index.html"),
                                             dict()))
 
 class ClassList(webapp.RequestHandler):
   def get(self):
-    self.response.out.write(template.render(getPath("class_list.html"), 
+    self.response.out.write(template.render(getPath("class_list.html"),
                                             dict()))
 
 class ClassPage(webapp.RequestHandler):
@@ -56,12 +56,17 @@ class ClassPage(webapp.RequestHandler):
 
 class ResearchPage(webapp.RequestHandler):
   def get(self):
-    self.response.out.write(template.render(getPath("index.html"), 
+    self.response.out.write(template.render(getPath("index.html"),
+                                            dict()))
+
+class ProjectsPage(webapp.RequestHandler):
+  def get(self):
+    self.response.out.write(template.render(getPath("projects.html"),
                                             dict()))
 
 class OtherPage(webapp.RequestHandler):
   def get(self):
-    self.response.out.write(template.render(getPath("index.html"), 
+    self.response.out.write(template.render(getPath("index.html"),
                                             dict()))
 
 def real_main():
@@ -71,6 +76,7 @@ def real_main():
       ('/class/?', ClassList),
       ('/class/([^/]*)/([^/]*)/([^/]*)/?', ClassPage),
       ('/research/?', ResearchPage),
+      ('/projects/?', ProjectsPage),
       ('/other/?', OtherPage),
       ],
                                        debug=True)

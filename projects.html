@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block nav_tab_projects %}<li class="active">
+<a href="/projects">Projects</a>
+</li>{% endblock %}
+
+{% block main_content %}
+<div class="row">
+
+<div class="span12">
+  {% block project_content %} 
+  <h2 class="content">Projects</h2>
+  <p>In my spare time, I'll often take up tiny coding projects or hack away
+  at open-source programs. I try to keep everything that I do, big or
+  small, on my <a href="https://github.com/hchapman">Github
+  profile</a>. Even this webpage is up there!</p>
+  <p>Here are some of the things I'm proud to have put a substantial amount of
+  time and effort into:</p>
+
+  <h3 class="content">Reverb</h2>
+  <p>Reverb is a PulseAudio (a Linux sound daemon) remote control for
+  Android phones, using the native PulseAudio libraries (as opposed to
+  SSH hackery). Many of the features of a typical volume control
+  application are available: it is possible to adjust the volume of
+  applications and speakers, as well as move application sound between
+  speakers.</p>
+  <p>The project is presently unfinished, as it has a tendency to
+  flood wireless networks to the point of crashing, but I would
+  otherwise deem it working well. The source
+  is <a href="https://github.com/hchapman/reverb">available on
+  GitHub</a>, and should compile easily.</p>
+
+  <h3 class="content">WBOR.org</h2>
+  <p>WBOR 91.1FM is the student radio station at Bowdoin College,
+  Brunswick ME; <a href="http://www.wbor.org/">WBOR.org</a> is their
+  website. It is written in Python and running on the Google
+  app engine. As a website radio station, it must allow DJs to easily
+  chart their plays (especially for CMJ and music promoters) and,
+  e.g., PSAs and "station IDs" (for the FCC). The current incarnation
+  was initially written by Seth Glickman, but during my tenure
+  I have (aside from maintenance):
+    <ul>
+      <li>Redesigned the website (using Bootstrap, with light customization).</li>
+      <li>Implemented a password hash/password reset system.</li>
+      <li>Added user self-registration.</li>
+      <li>Re-wired the database backend to leverage memory caching (to
+      minimize database reads and improve performance).</li>
+    </ul>
+    The source
+    is, of course, <a href="https://github.com/sglickman/WBOR">available on
+    Github</a>.
+  </p>  
+  {% endblock %}
+</div>
+
+</div>
+{% endblock main_content %}
