@@ -1,14 +1,21 @@
 application: hchaps
 version: 0-0-pre
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 
 handlers:
 - url: /
-  script: main.py
+  script: main.application
 - url: /index\.html
-  script: main.py
+  script: main.application
 - url: /static
   static_dir: static
 - url: /.*
-  script: main.py
+  script: main.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: django
+  version: latest
